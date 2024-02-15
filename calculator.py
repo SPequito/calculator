@@ -22,7 +22,8 @@ def result_calculation():
             result.insert(1.0, calc)
         except:
             clear_all_data()
-            result.delete(1.0, "ERROR")
+            #result.delete(1.0, "error")
+            result.insert(1.0, "error")
             
 # function  that clear all data        
 def  clear_all_data():
@@ -86,20 +87,26 @@ bt_minus.grid(row=3,column=4)
 bt_dot = tk.Button(root, text=("."), command=lambda : add_to_cal("."), width=5, font=("Arial", 14))
 bt_dot.grid(row=6,column=3)
 
-bt_mult = tk.Button(root, text=("x"), command=lambda : add_to_cal("x"), width=5, font=("Arial", 14))
+bt_mult = tk.Button(root, text=("x"), command=lambda : add_to_cal("*"), width=5, font=("Arial", 14))
 bt_mult.grid(row=4,column=4)
 
 bt_div = tk.Button(root, text=("/"), command=lambda : add_to_cal("/"), width=5, font=("Arial", 14))
 bt_div.grid(row=5,column=4)
 
-bt_result = tk.Button(root, text=("="), command=lambda : result_calculation(), width=5, font=("Arial", 14))
+bt_result = tk.Button(root, text=("="), command= result_calculation, width=5, font=("Arial", 14))
 bt_result.grid(row=6,column=4)
 
-bt_clear_all = tk.Button(root, text=("C"), command=lambda : clear_all_data(), width=5, font=("Arial", 14))
+bt_clear_all = tk.Button(root, text=("C"), command=clear_all_data, width=5, font=("Arial", 14))
 bt_clear_all.grid(row=5,column=2)
 
-bt_clear_one = tk.Button(root, text=("c"),command=lambda : clear_one_by_one(), width=5, font=("Arial", 14))
+bt_clear_one = tk.Button(root, text=("c"),command=clear_one_by_one, width=5, font=("Arial", 14))
 bt_clear_one.grid(row=5,column=3)
+
+bt_right_parentheses = tk.Button(root, text=(")"),command=lambda : add_to_cal(")"), width=5, font=("Arial", 14))
+bt_right_parentheses.grid(row=6,column=2)
+
+bt_left_parentheses = tk.Button(root, text=("("),command=lambda : add_to_cal("("), width=5, font=("Arial", 14))
+bt_left_parentheses.grid(row=6,column=1)
 
 #close panel
 root.mainloop()
