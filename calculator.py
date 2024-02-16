@@ -41,10 +41,12 @@ def  clear_one_by_one():
      print(calc)   
 
 #create the panel 
-root.geometry("300x275")
+root.geometry("290x320")
+root.minsize(290,320)
+root.maxsize(290,320)
 
-result = tk.Text(root, height=2,width=16, font=("Arial", 24))
-result.grid(columnspan= 6)
+result = tk.Text(root, height=2, width=16, font=("Arial", 24))
+result.grid(columnspan= 6, pady=16)
 
 #create botton
 
